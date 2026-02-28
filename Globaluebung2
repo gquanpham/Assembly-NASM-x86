@@ -4,3 +4,31 @@ Hinweis. Nutzen Sie zur Kontrolle Ihrer Lösung und ggf. Fehlersuche einen Debug
 a) Schreiben Sie ein Programm in 64-Bit x86 Assembler, das die nötigen Schritte zur
 Berechnung des Ausdrucks unter der Annahme x = 2 durchführt. Das Ergebnis soll
 nach der Berechnung im Register RAX liegen
+
+
+;Schreiben Sie ein Programm, welches den Wert jeder Zahl mal 2 von 1 bis N 
+;berechnet. Diese Werte sollen summiert und in Ergebnis gespeichert werden.
+
+DEFAULT REL
+SECTION .data
+    
+    x        DQ 2
+
+SECTION .text
+
+global main
+
+main:
+mov rdi, qword [x]
+mov rax, rdi
+imul rax, rdi
+imul rax
+
+mov rbx, rdi
+imul rbx,4
+add rax, rbx
+sub rax,5
+
+mov rdi, rax        
+    mov rax, 60         ; sys_exit
+    syscall
