@@ -1,0 +1,30 @@
+;Schreiben Sie ein Programm, welches den Wert jeder Zahl mal 2 von 1 bis N 
+;berechnet. Diese Werte sollen summiert und in Ergebnis gespeichert werden.
+
+DEFAULT REL
+SECTION .data
+    Ergebnis DQ 0
+    N        DQ 5
+
+SECTION .text
+
+global main
+
+main:
+mov rcx,1
+mov rbx,0
+
+schleife:
+cmp rcx, [N]
+jg ende
+mov rax, rcx
+imul rax,2
+add rbx, rax
+inc rcx
+jmp schleife
+
+ende:
+mov [Ergebnis], rbx
+mov rax,0
+ret
+
